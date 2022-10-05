@@ -1,11 +1,13 @@
 package club.codedemo.springdatajpasoftdelete;
 
-import com.fasterxml.jackson.annotation.JsonView;
+
+import org.hibernate.annotations.SQLDelete;
 
 import javax.persistence.*;
 
 @Entity
-public class Bar {
+@SQLDelete(sql = "update `bar` set deleted = 1 where id = ?")
+public class Bar implements SoftDelete {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -14,6 +16,7 @@ public class Bar {
   private Foo foo;
 
   private String name;
+  private Boolean deleted = false;
 
   public Bar() {
   }
@@ -44,5 +47,14 @@ public class Bar {
 
   public void setFoo(Foo foo) {
     this.foo = foo;
+  }
+
+  @Override
+  public Boolean getDeleted() {
+    return this.deleted;
+  }
+
+  public void setDeleted(Boolean deleted) {
+    this.deleted = deleted;
   }
 }
