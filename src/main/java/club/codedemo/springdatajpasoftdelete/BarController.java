@@ -41,6 +41,6 @@ public class BarController {
   @GetMapping("delete/{id}")
   public String deleteById(@PathVariable Long id) {
     this.barRepository.deleteById(id);
-    return "bar";
+    return "redirect:/bar";
   }
 }
