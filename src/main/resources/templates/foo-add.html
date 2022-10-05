@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html th:replace="~{base :: layout (~{::title}, ~{::section})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>foo-add</title>
+</head>
+<body class="container">
+<section>
+    <form method="post" action="/foo">
+        <div class="form-group">
+            <label for="name">name</label>
+            <input type="text" class="form-control" name="name" id="name" required>
+        </div>
+        <button type="submit" class="btn btn-primary">保存</button>
+    </form>
+</section>
+</body>

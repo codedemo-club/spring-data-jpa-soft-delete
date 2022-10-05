@@ -1,11 +1,31 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html th:replace="~{base :: layout (~{::title}, ~{::section})}" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Bar</title>
 </head>
-<body>
-<div th:insert="header :: copy">...</div>
-
+<body class="container">
+<section>
+    <div class="text-right mb-2">
+        <a href="/bar/add" class="btn btn-primary">
+            新增
+        </a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>Foo</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="bar : ${bars}">
+                <td th:text="${bar.name}"></td>
+                <td th:text="${bar.foo.name}"></td>
+                <td><a th:href="'/bar/delete/' + ${bar.id}">删除</a></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 </body>
 </html>

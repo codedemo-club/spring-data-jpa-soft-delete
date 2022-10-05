@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+    <div th:fragment="select">
+        <select name="foo_id">
+            <option th:each=" foo : ${@fooRepository.findAll()}" th:text="${foo.name}" th:value="${foo.id}"></option>
+        </select>
+    </div>
+</body>
