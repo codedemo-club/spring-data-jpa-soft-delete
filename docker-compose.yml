@@ -1,0 +1,10 @@
+version: '3.1'
+services:
+  java:
+    image: maven:3.6-openjdk-8
+    ports:
+      - "8080:8080"
+    working_dir: /root
+    volumes:
+      - ./:/root
+    command: ["mvn", "spring-boot:run"]
