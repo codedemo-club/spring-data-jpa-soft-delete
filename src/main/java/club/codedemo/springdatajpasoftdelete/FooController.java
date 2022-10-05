@@ -29,11 +29,6 @@ public class FooController {
     return "redirect:/foo";
   }
 
-//  @Bean(name = "fooRepository")
-//  public FooRepository all() {
-//    return this.fooRepository;
-//  }
-
   @GetMapping("add")
   public String add() {
     return "foo-add";
